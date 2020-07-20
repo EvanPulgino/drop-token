@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.background-empty {
+  background-color: #f4f5e2 !important;
+}
+
+.background-red {
+  background-color: #e8503f !important;
+}
+
+.background-yellow {
+  background-color: #fae673 !important;
+}
+
+.clickable {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.selected {
+  border: 4px solid #000000 !important;
+}

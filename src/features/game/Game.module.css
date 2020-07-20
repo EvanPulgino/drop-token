@@ -1,0 +1,17 @@
+.title {
+    display: block;
+}
+
+.playArea {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.dropZones {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 70vw;
+    height: 25vh;
+    justify-items: center;
+    align-items: center;
+}
