@@ -21,7 +21,7 @@ const dispatch = useDispatch()
     return (
         <div id="gameMenu" className={getMenuClass(gameActive)}>
             <div id="color-prompt" className={styles.prompt}>
-                <h3 id="color-prompt-title">Select Player Color</h3>
+                <h3 id="color-prompt-title" className={styles.promptTitle}>Select Player Color</h3>
                 <div id="color-options" className={styles.choice}>
                     <div id="red-option" className={getRedClass(playerColor)} 
                          onClick={() => dispatch(changePlayerColor(Constants.RED))} />
@@ -30,7 +30,7 @@ const dispatch = useDispatch()
                 </div>
             </div>
             <div id="order-prompt" className={styles.prompt}>
-                <h3 id="order-prompt-title">Do you want to play first or second?</h3>
+                <h3 id="order-prompt-title" className={styles.promptTitle}>Do you want to play first or second?</h3>
                 <div id="order-options" className={styles.choice}>
                     <div id="first-option" className={getFirstClass(playerOrder)}
                          onClick={() => dispatch(changePlayerOrder(Constants.FIRST))}>
