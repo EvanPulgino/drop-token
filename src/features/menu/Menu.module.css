@@ -5,8 +5,8 @@
     height: 70vh;
     border: 5px solid;
     background-color: white;
-    justify-content: center;
-    align-items: top;
+    justify-items: center;
+    align-items: center;
 }
 
 .prompt {
@@ -17,14 +17,14 @@
 .choice {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    width: 45vw;
+    width: 100%;
     justify-items: center;
     align-items: center;
 }
 
 .red {
-    width: 15vh;
-    height: 15vh;
+    width: 30vw;
+    height: 30vw;
     background-color: #e8503f;
     border: 6px solid #e8503f;
     border-radius: 50%;
@@ -33,8 +33,8 @@
 }
 
 .yellow {
-    width: 15vh;
-    height: 15vh;
+    width: 30vw;
+    height: 30vw;
     background-color: #fae673;
     border: 6px solid #fae673;
     border-radius: 50%;
@@ -43,8 +43,7 @@
 }
 
 .order {
-    width: 11vw;
-    padding: 2vh;
+    padding: 10%;
     background-color: lightgrey;
     border: 4px solid lightgrey;
     pointer-events: none;
@@ -52,11 +51,10 @@
 }
 
 .start {
+    padding: 10%;
     text-align: center;
     color: white;
     font-weight: bold;
-    width: 100%;
-    padding: 4vh 0 4vh 0;
     background-color: dodgerblue;
     border: 4px solid dodgerblue;
     cursor: pointer;
