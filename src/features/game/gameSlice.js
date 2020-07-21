@@ -208,12 +208,6 @@ export const {
     restartGame
 } = gameSlice.actions;
 
-export const dropTokenAsync = (state, column) => {
-    setTimeout(() => {
-        dropToken(state, column);
-    }, 1000);
-}
-
 export const selectEndCondition = state => state.game.endCondition;
 export const selectFullColumns = state => state.game.fullColumns;
 export const selectGameActive = state => state.game.gameActive;
@@ -228,6 +222,8 @@ export const selectGameGrid = state => state.game.gameGrid;
 export default gameSlice.reducer;
 
 export function fetchNextMove(moveList) {
+    document.getElementById("trigger-ai-move").disabled = true;
+
     return async function(dispatch) {
         const column = await getNextMoveCall(moveList);
         dispatch(dropToken(column));

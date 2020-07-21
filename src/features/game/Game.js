@@ -34,6 +34,7 @@ export function Game() {
             <Menu />
             <div id="playArea" className={getPlayAreaClass(gameActive)}>
                 <button
+                    id="trigger-ai-move"
                     className={getAIButtonClass(onTurn)}
                     onClick={() => dispatch(fetchNextMove(moveHistory))}>
                         Trigger AI Move
