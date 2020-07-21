@@ -11,7 +11,7 @@ import {
     selectOnTurnColor,
 } from './gameSlice';
 import { Menu } from '../menu/Menu';
-import { DropZone } from '../dropZone/DropZone';
+import { DropZone } from '../dropzone/DropZone';
 import { Board } from '../board/Board';
 import { GameEndAlert } from '../gameEndAlert/GameEndAlert';
 import * as Util from '../../util'
