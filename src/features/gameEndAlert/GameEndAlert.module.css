@@ -1,31 +1,33 @@
+/* Global GameEndAlert Styles */
+
 .gameEndAlert {
     position: absolute;
-    top: 250px;
-    left: 250px;
-    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
     overflow: hidden;
-    width: 375px;
-    height: 250px;
+    width: 50vw;
+    height: 40vh;
 }
 
 .alertBox {
     position: absolute;
-    width: 375px;
-    height: 250px;
-    background: green;
-    border-radius: 10%;
+    width: 50vw;
+    height: 40vh;
+    background: var(--green);
 }
 
 .alertMessage {
     position: absolute;
     width: 100%;
     text-align: center;
-    height: 40%;
+    height: 50%;
 }
 
 .messageTitle {
-    font-size: 2em;
-    color: white;
+    font-size: 75px;
+    color: var(--white);
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 3px;
@@ -35,28 +37,83 @@
     cursor: pointer;
     position: absolute;
     background: white;
-    width: 40%;
+    width: 30vw;
     height: 15%;
     border-radius: 20px;
     top: 65%;
-    left: 30%;
+    left: 10vw;
     outline: 0;
     border: none;
     transition: all .5s ease-in-out;
 }
 
 .alertButton:hover {
-    background: darken(green, 5%);
+    background: darken(var(--green), 5%);
     transform: scale(1.05);
     transition: all .3s ease-in-out;
 }
 
 .buttonText {
-    font-size: 0.9em;
+    font-size: 25px;
     font-weight: 700;
     letter-spacing: 3px;
     padding-top: 5px;
-    color: green;
     padding-bottom: 5px;
+    color: var(--green);
     text-transform: uppercase;
+}
+
+/* Small Desktop/Laptop GameEndAlert Styles */
+@media screen and (min-width: 769px) and (max-width: 1024px) {   
+    .messageTitle {
+        font-size: 60px;
+    }
+    
+    .alertButton {
+        width: 35vw;
+        height: 20%;
+        left: 7.5vw;
+    }
+    
+    .buttonText {
+        font-size: 22.5px;
+    }
+}
+
+/* Tablet/Large GameEndAlert Menu Styles */
+@media screen and (min-width: 481px)  and (max-width: 768px) {
+    .messageTitle {
+        font-size: 40px;
+    }
+    
+    .alertButton {
+        width: 30vw;
+        height: 20%;
+        left: 10vw;
+    }
+    
+    .buttonText {
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+}
+
+/* Phone GameEndAlert Styles */
+@media screen and (max-width: 480px) {
+    .messageTitle {
+        font-size: 30px;
+    }
+    
+    .alertButton {
+        width: 30vw;
+        height: 20%;
+        left: 10vw;
+    }
+    
+    .buttonText {
+        font-size: 12.5px;
+        letter-spacing: 1px;
+        padding-top: 2.5px;
+        padding-bottom: 2.5px;
+    }
 }

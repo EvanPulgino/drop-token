@@ -1,12 +1,13 @@
+/* Global Menu Styles */
 .menu {
     display: grid;
+    width: 725px;
+    height: 700px;
+    border: 7px solid;
+    border-radius: 75px;
     grid-template-rows: repeat(3, 1fr);
-    width: 80vw;
-    height: 75vh;
-    border: 5px solid;
-    background-color: white;
+    background: var(--white);
     justify-items: center;
-    align-items: start;
 }
 
 .prompt {
@@ -15,7 +16,15 @@
 }
 
 .promptTitle{
-    font-size: 2vw;
+    font-size: 40px;
+}
+
+.colorPrompt {
+    align-self: start;
+}
+
+.orderPrompt {
+    align-self: center;
 }
 
 .choice {
@@ -24,50 +33,163 @@
     width: 100%;
     justify-items: center;
     align-items: center;
+    align-self: start;
 }
 
 .red {
     position: relative;
-    width: 20%;
     height: auto;
-    padding-top: 20%;
-    background-color: #e8503f;
-    border: 6px solid #e8503f;
+    width: 125px;
+    padding-top: 125px;
+    border: 6px solid var(--red);
+    background: var(--red);
     border-radius: 50%;
+    transition: all .5s ease-in-out;
     pointer-events: none;
     cursor: auto;
+}
+
+.red:hover {
+    transform: scale(1.05);
+    transition: all .3s ease-in-out;
 }
 
 .yellow {
     position: relative;
-    width: 20%;
     height: auto;
-    padding-top: 20%;
-    background-color: #fae673;
-    border: 6px solid #fae673;
+    width: 125px;
+    padding-top: 125px;
+    border: 6px solid var(--yellow);
+    background: var(--yellow);
     border-radius: 50%;
+    transition: all .5s ease-in-out;
     pointer-events: none;
     cursor: auto;
+}
+
+.yellow:hover {
+    transform: scale(1.05);
+    transition: all .3s ease-in-out;
 }
 
 .order {
-    padding: 1vw;
-    width: 10vw;
-    font-size: 2vw;
-    background-color: lightgrey;
-    border: 4px solid lightgrey;
+    padding: 25px;
+    width: 125px;
+    font-size: 40px;
+    font-weight: 600;
+    border-radius: 75px;
+    border: 6px solid var(--green);
+    color: var(--white);
+    background: var(--green);
+    transition: all .5s ease-in-out;
     pointer-events: none;
     cursor: auto;
 }
 
+.order:hover {
+    transform: scale(1.05);
+    transition: all .3s ease-in-out;
+}
+
 .start {
-    font-size: 2vw;
-    padding: 1vw;
+    font-size: 50px;
+    padding: 30px;
+    font-weight: 750;
+    letter-spacing: 1.5px;
+    border-radius: 55px;
     text-align: center;
-    color: white;
-    font-weight: bold;
-    background-color: dodgerblue;
-    border: 4px solid dodgerblue;
+    color: var(--white);
+    background: var(--blue);
     cursor: pointer;
     align-self: center;
+    transition: all .5s ease-in-out;
+}
+
+.start:hover {
+    transform: scale(1.05);
+    transition: all .3s ease-in-out;
+}
+
+/* Tablet/Large Phone Menu Styles */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .menu {
+        width: 375px;
+        height: 450px;
+        border: 5.5px solid;
+    }
+
+    .promptTitle{
+        font-size: 25px;
+    }
+
+    .red {
+        width: 75px;
+        padding-top: 75px;
+        border: 4px solid var(--red);
+    }
+
+    .yellow {
+        width: 75px;
+        padding-top: 75px;
+        border: 4px solid var(--yellow);
+    }
+
+    .order {
+        padding: 10px;
+        width: 75px;
+        font-size: 25px;
+        font-weight: 600;
+        border-radius: 75px;
+        border: 4px solid var(--green);
+    }
+
+    .start {
+        font-size: 30px;
+        padding: 20px;
+        font-weight: 750;
+        letter-spacing: 1.5px;
+        border-radius: 55px;
+    }
+}
+
+/* Phone Menu Styles */
+@media screen and (max-width: 480px) {
+    .menu {
+        width: 275px;
+        height: 450px;
+        border: 5px solid;
+    }
+
+    .promptTitle{
+        font-size: 22.5px;
+    }
+
+    .red {
+        width: 70px;
+        padding-top: 70px;
+        border: 3px solid var(--red);
+    }
+
+    .yellow {
+        width: 70px;
+        padding-top: 70px;
+        border: 3px solid var(--yellow);
+    }
+
+    .order {
+        padding: 7.5px;
+        width: 70px;
+        font-size: 22.5px;
+        font-weight: 600;
+        border-radius: 75px;
+        border: 3px solid var(--green);
+    }
+
+    .start {
+        font-size: 25px;
+        padding: 15px;
+        font-weight: 750;
+        letter-spacing: 1.5px;
+        border-radius: 55px;
+    }
 }

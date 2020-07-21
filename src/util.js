@@ -20,6 +20,10 @@ export function makeHidden(className) {
     return className + " " + Constants.HIDDEN;
 }
 
+export function makeInivisble(className) {
+    return className + " " + Constants.INVISIBLE;
+}
+
 export function makeSelected(className) {
     return className + " " + Constants.SELECTED;
 }

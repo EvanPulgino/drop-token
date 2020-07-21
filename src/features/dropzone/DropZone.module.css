@@ -1,5 +1,31 @@
+/* Global DropZone Styles */
 .dropZone {
     border-radius: 50%;
-    width: 9vw;
-    height: 9vw;
+    width: 7vw;
+    height: auto;
+    padding-top: 7vw;
+}
+
+/* Small Desktop/Laptop DropZone Styles */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .dropZone {
+        width: 110px;
+        padding-top: 110px;
+    }
+}
+
+/* Tablet/Large Phone DropZone Styles */
+@media screen and (min-width: 481px)  and (max-width: 768px) {
+    .dropZone {
+        width: 65px;
+        padding-top: 65px;
+    }
+}
+
+/* Phone DropZone Styles */
+@media screen and (max-width: 480px) {
+    .dropZone {
+        width: 50px;
+        padding-top: 50px;
+    }
 }

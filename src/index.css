@@ -1,3 +1,15 @@
+/* Global Styles */
+:root {
+  --app-background: #f4f5e2;
+  --black: #000000;
+  --blue: #1e90ff;
+  --dark-blue: #000080;
+  --green: #228B22;
+  --red: #e8503f;
+  --white: #ffffff;
+  --yellow: #fae673;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,15 +25,15 @@ code {
 }
 
 .background-empty {
-  background-color: #f4f5e2 !important;
+  background: var(--app-background) !important;
 }
 
 .background-red {
-  background-color: #e8503f !important;
+  background: var(--red) !important;
 }
 
 .background-yellow {
-  background-color: #fae673 !important;
+  background: var(--yellow) !important;
 }
 
 .clickable {
@@ -33,11 +45,30 @@ code {
   display: none !important;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .selected {
-  border: 4px solid #000000 !important;
+  border: 6px solid var(--black) !important;
 }
 
 .unclickable {
   pointer-events: none !important;
   cursor: auto !important;
+}
+
+
+/* Tablet/Large Phone Styles */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .selected {
+    border: 4px solid var(--black) !important;
+  }
+}
+
+/* Phone Styles */
+@media screen and (max-width: 480px) {
+  .selected {
+    border: 3px solid var(--black) !important;
+  }
 }

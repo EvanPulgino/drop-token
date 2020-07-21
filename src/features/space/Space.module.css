@@ -1,6 +1,35 @@
+/* Global Space Styles */
 .space {
     border-radius: 50%;
-    border: 3px solid #000080;
-    width: 8vw;
-    height: 8vw;
+    border: 6px solid var(--dark-blue);
+    width: 6.5vw;
+    height: auto;
+    padding-top: 6.5vw;
+}
+
+/* Small Desktop/Laptop Space Styles */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .space {
+        border: 5px solid var(--dark-blue);
+        width: 100px;
+        padding-top: 100px;
+    }
+}
+
+/* Tablet/Large Phone Space Styles */
+@media screen and (min-width: 481px)  and (max-width: 768px) {
+    .space {
+        border: 4px solid var(--dark-blue);
+        width: 60px;
+        padding-top: 60px;
+    }
+}
+
+/* Phone Space Styles */
+@media screen and (max-width: 480px) {
+    .space {
+        border: 3px solid var(--dark-blue);
+        width: 45px;
+        padding-top: 45px;
+    }
 }

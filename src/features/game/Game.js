@@ -33,7 +33,11 @@ export function Game() {
             <h1 id="gameTitle" className={getTitleClass(gameActive)}>Drop Token</h1>
             <Menu />
             <div id="playArea" className={getPlayAreaClass(gameActive)}>
-                <button onClick={() => dispatch(fetchNextMove(moveHistory))} disabled={Constants.PLAYER === onTurn}>Trigger AI Move</button>
+                <button
+                    className={getAIButtonClass(onTurn)}
+                    onClick={() => dispatch(fetchNextMove(moveHistory))}>
+                        Trigger AI Move
+                </button>
                 <div id="dropZones" className={styles.dropZones}>
                     <DropZone column={0} color={onTurnColor} fullColumns={fullColumns} onTurn={onTurn} />
                     <DropZone column={1} color={onTurnColor} fullColumns={fullColumns} onTurn={onTurn} />
@@ -59,6 +63,13 @@ function getPlayAreaClass(gameActive) {
         return styles.playArea;
     }
     return Util.makeHidden(styles.playArea)
+}
+
+function getAIButtonClass(onTurn) {
+    if (Constants.AI === onTurn) {
+        return styles.aiMoveButton;
+    }
+    else return Util.makeInivisble(styles.aiMoveButton);
 }
 
 export default Game;

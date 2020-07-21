@@ -4,6 +4,7 @@ export const BACKGROUND_RED = "background-red";
 export const BACKGROUND_YELLOW = "background-yellow";
 export const CLICKABLE = "clickable";
 export const HIDDEN = "hidden";
+export const INVISIBLE = "invisible";
 export const SELECTED = "selected";
 export const UNCLICKABLE = "unclickable";
 

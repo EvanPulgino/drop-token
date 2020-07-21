@@ -22,12 +22,12 @@ export const gameSlice = createSlice({
             var victory = checkForVictory(state.gameGrid);
             if (victory) {
                 if (state.playerColor === state.onTurnColor) {
-                    state.endCondition = "You Win!"
+                    state.endCondition = Constants.YOU_WIN
                 } else {
-                    state.endCondition = "You Lose!"
+                    state.endCondition = Constants.YOU_LOSE
                 }
             } else if (checkForDraw(state.gameGrid)) {
-                state.endCondition = "Draw!"
+                state.endCondition = Constants.DRAW
             } else {
                 toggleOnTurn(state);
                 toggleOnTurnColor(state);
