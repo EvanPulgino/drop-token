@@ -4,13 +4,18 @@
     width: 7vw;
     height: auto;
     padding-top: 7vw;
-    transition: all .5s ease-in-out;
+    transition: background .5s ease-in-out;
+    background-position: center;
 }
 
 .dropZone:hover {
-    border: 5px solid;
-    transform: scale(1.05);
-    transition: all .3s ease-in-out;
+    background: var(--white) radial-gradient(circle, transparent 1%, var(--white) 1%) center/15000%;
+}
+
+.dropZone:active {
+    background-color: var(--white);
+    background-size: 100%;
+    transition: background .5s ease-in-out;
 }
 
 /* Small Desktop/Laptop DropZone Styles */

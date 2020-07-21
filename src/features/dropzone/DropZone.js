@@ -26,6 +26,8 @@ function getDropZoneClass(color, column, fullColumns, onTurn) {
 
     if (Constants.AI === onTurn) {
         dropZoneClass = Util.makeUnclickable(dropZoneClass);
+    } else {
+        dropZoneClass = Util.makeClickable(dropZoneClass);
     }
 
     switch (color) {
