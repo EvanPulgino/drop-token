@@ -68,6 +68,7 @@ function getPlayAreaClass(gameActive) {
 
 function getAIButtonClass(onTurn) {
     if (Constants.AI === onTurn) {
+        document.getElementById("trigger-ai-move").disabled = false;
         return styles.aiMoveButton;
     }
     else return Util.makeInivisble(styles.aiMoveButton);
