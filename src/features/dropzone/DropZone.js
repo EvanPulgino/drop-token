@@ -8,23 +8,35 @@ import styles from './DropZone.module.css';
 export function DropZone(props) {
     const color = props.color;
     const column = props.column;
+    const fullColumns = props.fullColumns;
+    const onTurn = props.onTurn;
     const dispatch = useDispatch();
 
     var id = 'dropzone-' + column;
 
-    return <div id={id} className={getDropZoneClass(color)} onClick={() => dispatch(dropToken(column))} />
+    return <div id={id} className={getDropZoneClass(color, column, fullColumns, onTurn)} onClick={() => dispatch(dropToken(column))} />
 }
 
-function getDropZoneClass(color) {
+function getDropZoneClass(color, column, fullColumns, onTurn) {
+    if (fullColumns.includes(column)) {
+        return Util.makeUnclickable(Util.makeBackgroundEmpty(styles.dropZone));
+    }
+
+    var dropZoneClass = styles.dropZone;
+
+    if (Constants.AI === onTurn) {
+        dropZoneClass = Util.makeUnclickable(dropZoneClass);
+    }
+
     switch (color) {
         case(Constants.RED): {
-            return Util.makeBackgroundRed(styles.dropZone);
+            return Util.makeBackgroundRed(dropZoneClass);
         }
         case(Constants.YELLOW): {
-            return Util.makeBackgroundYellow(styles.dropZone);
+            return Util.makeBackgroundYellow(dropZoneClass);
         }
         default: {
-            return Util.makeBackgroundEmpty(styles.dropZone);
+            return Util.makeBackgroundEmpty(dropZoneClass);
         }
     }
 }

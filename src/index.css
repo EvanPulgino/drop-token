@@ -36,3 +36,8 @@ code {
 .selected {
   border: 4px solid #000000 !important;
 }
+
+.unclickable {
+  pointer-events: none !important;
+  cursor: auto !important;
+}

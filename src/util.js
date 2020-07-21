@@ -23,3 +23,7 @@ export function makeHidden(className) {
 export function makeSelected(className) {
     return className + " " + Constants.SELECTED;
 }
+
+export function makeUnclickable(className) {
+    return className + " " + Constants.UNCLICKABLE;
+}

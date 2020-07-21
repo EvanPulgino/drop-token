@@ -1,0 +1,62 @@
+.gameEndAlert {
+    position: absolute;
+    top: 250px;
+    left: 250px;
+    margin: auto;
+    overflow: hidden;
+    width: 375px;
+    height: 250px;
+}
+
+.alertBox {
+    position: absolute;
+    width: 375px;
+    height: 250px;
+    background: green;
+    border-radius: 10%;
+}
+
+.alertMessage {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 40%;
+}
+
+.messageTitle {
+    font-size: 2em;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.alertButton {
+    cursor: pointer;
+    position: absolute;
+    background: white;
+    width: 40%;
+    height: 15%;
+    border-radius: 20px;
+    top: 65%;
+    left: 30%;
+    outline: 0;
+    border: none;
+    transition: all .5s ease-in-out;
+}
+
+.alertButton:hover {
+    background: darken(green, 5%);
+    transform: scale(1.05);
+    transition: all .3s ease-in-out;
+}
+
+.buttonText {
+    font-size: 0.9em;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding-top: 5px;
+    color: green;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}

@@ -1,17 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getNextMoveCall } from '../../api/dropTokenAPI';
 import * as Constants from '../../constants';
 
 export const gameSlice = createSlice({
    name: 'game',
-   initialState: {
-       gameActive: false,
-       gameGrid: buildEmptyGrid(),
-       moveHistory: [],
-       onTurn: Constants.PLAYER,
-       onTurnColor: Constants.RED,
-       playerColor: Constants.RED,
-       playerOrder: Constants.FIRST,
-   },
+   initialState: initialState(),
    reducers: {
         changePlayerColor: (state, action) => {
            state.playerColor = action.payload;
@@ -20,13 +13,21 @@ export const gameSlice = createSlice({
             state.playerOrder = action.payload
         },
         dropToken: (state, action) => {
-            state.moveHistory.push(action.payload);
-            state.gameGrid = dropIntoColumn(state.gameGrid, action.payload, state.onTurnColor);
+            let column = action.payload;
+            state.moveHistory.push(column);
+            state.gameGrid = dropIntoColumn(state.gameGrid, column, state.onTurnColor);
+            if (isColumnFull(state.gameGrid, column)) {
+                state.fullColumns.push(column);
+            }
             var victory = checkForVictory(state.gameGrid);
             if (victory) {
-                // End game here
+                if (state.playerColor === state.onTurnColor) {
+                    state.endCondition = "You Win!"
+                } else {
+                    state.endCondition = "You Lose!"
+                }
             } else if (checkForDraw(state.gameGrid)) {
-                // End game here
+                state.endCondition = "Draw!"
             } else {
                 toggleOnTurn(state);
                 toggleOnTurnColor(state);
@@ -38,11 +39,28 @@ export const gameSlice = createSlice({
                 state.onTurnColor = state.playerColor;
             } else {
                 toggleOnTurn(state);
-                toggleOnTurnColor(state);
+                if (Constants.RED === state.playerColor) {
+                    toggleOnTurnColor(state);
+                }
             }
         },
+        restartGame: state => initialState(),
     },
 });
+
+function initialState() {
+    return {
+        endCondition: undefined,
+        gameActive: false,
+        gameGrid: buildEmptyGrid(),
+        fullColumns: [],
+        moveHistory: [],
+        onTurn: Constants.PLAYER,
+        onTurnColor: Constants.RED,
+        playerColor: Constants.RED,
+        playerOrder: Constants.FIRST,
+    };
+}
 
 function buildEmptyGrid() {
     return [
@@ -138,6 +156,16 @@ function checkForRowVictory(grid) {
     return false;
 }
 
+function isColumnFull(grid, column) {
+    for (let i = 0; i < grid.length; i++) {
+        if (Constants.EMPTY === grid[i][column]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 function isWinningSequence(element, index, array) {
     if (index === 0) {
         return true;
@@ -172,9 +200,25 @@ function toggleOnTurnColor(state) {
     }
 }
 
-export const {changePlayerColor, changePlayerOrder, dropToken, startGame } = gameSlice.actions;
+export const {
+    changePlayerColor,
+    changePlayerOrder,
+    dropToken,
+    startGame,
+    restartGame
+} = gameSlice.actions;
 
+export const dropTokenAsync = (state, column) => {
+    setTimeout(() => {
+        dropToken(state, column);
+    }, 1000);
+}
+
+export const selectEndCondition = state => state.game.endCondition;
+export const selectFullColumns = state => state.game.fullColumns;
 export const selectGameActive = state => state.game.gameActive;
+export const selectMoveHistory = state => state.game.moveHistory;
+export const selectAPICallResponse = state => state.game.apiCallResponse;
 export const selectPlayerColor = state => state.game.playerColor;
 export const selectPlayerOrder = state => state.game.playerOrder;
 export const selectOnTurn = state => state.game.onTurn;
@@ -182,3 +226,10 @@ export const selectOnTurnColor = state => state.game.onTurnColor;
 export const selectGameGrid = state => state.game.gameGrid;
 
 export default gameSlice.reducer;
+
+export function fetchNextMove(moveList) {
+    return async function(dispatch) {
+        const column = await getNextMoveCall(moveList);
+        dispatch(dropToken(column));
+    }   
+};
