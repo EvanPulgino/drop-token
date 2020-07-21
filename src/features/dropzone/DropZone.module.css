@@ -4,6 +4,13 @@
     width: 7vw;
     height: auto;
     padding-top: 7vw;
+    transition: all .5s ease-in-out;
+}
+
+.dropZone:hover {
+    border: 5px solid;
+    transform: scale(1.05);
+    transition: all .3s ease-in-out;
 }
 
 /* Small Desktop/Laptop DropZone Styles */
